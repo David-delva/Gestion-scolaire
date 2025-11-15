@@ -7,12 +7,14 @@
 //
 
 // --- Paramètres de connexion à la base de données MySQL ---
+// Les valeurs sont récupérées des variables d'environnement.
+// Fournir des valeurs par défaut pour la compatibilité locale.
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'gestion_scolaire'); // Nom de votre base de données
-define('DB_USER', 'root');             // Votre nom d'utilisateur MySQL
-define('DB_PASS', '');                 // Votre mot de passe MySQL
-define('DB_CHARSET', 'utf8mb4');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'gestion_scolaire'); // Nom de votre base de données
+define('DB_USER', getenv('DB_USER') ?: 'root');             // Votre nom d'utilisateur MySQL
+define('DB_PASS', getenv('DB_PASS') ?: '');                 // Votre mot de passe MySQL
+define('DB_CHARSET', getenv('DB_CHARSET') ?: 'utf8mb4');
 
 // Options PDO pour une connexion sécurisée et robuste
 // Ces options sont passées au constructeur PDO.
